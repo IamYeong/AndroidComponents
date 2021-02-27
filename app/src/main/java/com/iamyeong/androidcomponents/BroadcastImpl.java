@@ -27,7 +27,6 @@ public class BroadcastImpl extends AppCompatActivity {
          */
 
 
-
     }
 
     @Override
