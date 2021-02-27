@@ -10,6 +10,8 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        System.out.println("onReceive ");
+
         String action = intent.getAction();
         Toast.makeText(context, "ACTION =>" + action, Toast.LENGTH_SHORT).show();
 
