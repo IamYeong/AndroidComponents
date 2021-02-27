@@ -11,10 +11,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MyReceiver receiver;
-    private IntentFilter intentFilter;
-    private Button btn_broadcast, btn_service, btn_content;
 
+    //@SuppressWarnings("FieldCanBeLocal")
+    private Button btn_broadcast, btn_service, btn_content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,25 +56,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-        receiver = new MyReceiver();
-        intentFilter = new IntentFilter();
-
-        intentFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-
-        this.registerReceiver(receiver, intentFilter);
-
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        unregisterReceiver(receiver);
-
-    }
 }
