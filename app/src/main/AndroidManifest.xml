@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ServiceImpl"></activity>
+
+
+        <activity android:name=".ServiceImpl" />
         <activity android:name=".ContentProviderImpl" />
         <activity android:name=".BroadcastImpl" />
 
@@ -34,5 +36,8 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>

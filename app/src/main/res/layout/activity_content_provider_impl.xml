@@ -6,4 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".ContentProviderImpl">
 
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="318dp"
+        android:layout_height="49dp"
+        android:hint="INPUT"
+
+        app:layout_constraintEnd_toStartOf="@+id/btn_content"
+        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintRight_toLeftOf="@id/btn_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="CONFIRM"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintRight_toRightOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="408dp"
+        android:layout_height="679dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_content" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

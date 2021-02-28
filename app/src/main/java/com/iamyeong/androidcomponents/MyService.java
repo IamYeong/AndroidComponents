@@ -32,9 +32,17 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.music);
-        mediaPlayer.setLooping(true);
-        mediaPlayer.start();
+        new Thread() {
+
+            @Override
+            public void run() {
+                mediaPlayer = MediaPlayer.create(MyService.this, R.raw.music);
+                mediaPlayer.setLooping(true);
+                mediaPlayer.start();
+
+
+            }
+        }.start();
 
         return super.onStartCommand(intent, flags, startId);
 

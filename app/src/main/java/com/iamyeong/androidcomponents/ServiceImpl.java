@@ -2,6 +2,8 @@ package com.iamyeong.androidcomponents;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,7 @@ public class ServiceImpl extends AppCompatActivity {
 
     private Intent intent;
     private Button btn_play, btn_stop;
+    private ServiceAsync serviceAsync;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,7 @@ public class ServiceImpl extends AppCompatActivity {
 
          */
 
+
         intent = new Intent(this, MyService.class);
 
         btn_play = findViewById(R.id.btn_play);
@@ -34,6 +38,7 @@ public class ServiceImpl extends AppCompatActivity {
             public void onClick(View v) {
 
                 startService(intent);
+
 
             }
         });
