@@ -18,6 +18,7 @@ public class ContentProviderImpl extends AppCompatActivity {
     private TextView tv;
     private Button btn;
     private RoomDatabase db;
+    private RoomAsync async;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class ContentProviderImpl extends AppCompatActivity {
         btn = findViewById(R.id.btn_content);
 
         initialData();
+
 
 
 
@@ -57,48 +59,29 @@ public class ContentProviderImpl extends AppCompatActivity {
 
     private void initialData() {
 
-        new Thread() {
+        db = RoomDatabase.getInstance(ContentProviderImpl.this);
 
+    }
+
+    private void insertData() {
+
+        async = new RoomAsync(this) {
             @Override
-            public void run() {
-                db = RoomDatabase.getInstance(ContentProviderImpl.this);
+            public void doingAsync() {
+                db.dao().insert(new RoomEntity("A"));
             }
-        }.start();
+        };
 
+        async.execute();
 
 
     }
 
-    public class DabaAsync extends AsyncTask<String, String, String> {
+    private void selectAllData() {
 
-        private Context context;
-
-        public DabaAsync(Context context) {
-            this.context = context;
-
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-        }
-
-        @Override
-        protected void onProgressUpdate(String... values) {
-            super.onProgressUpdate(values);
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            return null;
-        }
     }
+
+
 
 
 

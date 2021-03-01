@@ -16,6 +16,9 @@ public interface RoomDao {
     @Query("SELECT * FROM entities")
     List<RoomEntity> getAll();
 
+    @Query("SELECT COUNT(*) FROM " + RoomEntity.TABLE_NAME)
+    int count();
+
     @Insert
     void insert(RoomEntity entity);
 
